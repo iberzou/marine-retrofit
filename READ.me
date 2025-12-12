@@ -1,0 +1,414 @@
+ Marine Retrofit Management System
+
+A comprehensive full-stack web application for managing marine vessel retrofit operations, built with FastAPI and React. This system provides complete project management capabilities for marine retrofit projects including task tracking, inventory management, blueprint handling, and reporting.
+
+ 🌊 Features
+
+ Core Functionality
+- User Authentication & Authorization: Role-based access control (Admin, Project Manager, Engineer, Technician)
+- Dashboard: Real-time statistics and project overview with role-specific views
+- Project Management: Complete CRUD operations for retrofit projects
+- Task Management: Task assignment, tracking, and status updates
+- Inventory Control: Stock management with transaction tracking
+- Blueprint Management: Upload and manage project blueprints and documents
+- Report Generation: PDF reports for projects, tasks, inventory, and finances
+- User Settings: Customizable user preferences and notifications
+
+ Technical Features
+- JWT-based authentication
+- RESTful API architecture
+- MySQL database with comprehensive schema
+- File upload capabilities
+- Role-based permissions
+- Maritime-themed UI (Navy Blue and Sea Green color scheme)
+- Responsive design
+
+ 🛠 Tech Stack
+
+ Backend
+- FastAPI (0.104.1) - Modern Python web framework
+- SQLAlchemy (2.0.23) - ORM for database operations
+- PyMySQL (1.1.0) - MySQL database connector
+- Python-JOSE - JWT token handling
+- Passlib & Bcrypt - Password hashing
+- ReportLab - PDF generation
+- Uvicorn - ASGI server
+
+ Frontend
+- React (18.2.0) - UI library
+- React Router DOM (6.20.0) - Client-side routing
+- Axios (1.6.0) - HTTP client
+- Recharts (2.10.0) - Data visualization
+- React Icons - Icon library
+- React Dropzone - File upload handling
+
+ Database
+- MySQL - Relational database management system
+
+ 📋 Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- Python 3.8 or higher
+- Node.js 14.x or higher and npm
+- MySQL 5.7 or higher
+- Git (for cloning the repository)
+
+ 🚀 Installation
+ 1. Database Setup
+
+ Start MySQL and create the database:
+
+bash
+mysql -u root -p
+
+
+Enter your MySQL password when prompted, then execute:
+
+sql
+DROP DATABASE IF EXISTS marine_retrofit;
+CREATE DATABASE marine_retrofit;
+USE marine_retrofit;
+
+
+ Import the schema:
+
+sql
+SOURCE database/schema.sql;
+
+
+ Verify the tables were created:
+
+sql
+SHOW TABLES;
+
+
+Expected output:
+
++---------------------------+
+| Tables_in_marine_retrofit |
++---------------------------+
+| blueprints                |
+| generated_reports         |
+| inventory                 |
+| project_assignments       |
+| projects                  |
+| report_templates          |
+| stock_transactions        |
+| tasks                     |
+| user_settings             |
+| users                     |
++---------------------------+
+
+
+Exit MySQL:
+sql
+EXIT;
+
+
+ 2. Backend Setup
+
+Navigate to the backend directory:
+
+bash
+cd backend
+
+
+ Create a virtual environment:
+
+On macOS/Linux:
+bash
+python3 -m venv venv
+source venv/bin/activate
+
+
+On Windows:
+bash
+python -m venv venv
+venv\Scripts\activate
+
+
+ Install Python dependencies:
+
+bash
+pip install -r requirements.txt
+
+
+ Configure environment variables:
+
+Create a `.env` file in the `backend` directory:
+
+bash
+cp .env.example .env
+
+
+Edit the `.env` file and update with your settings:
+
+env
+DATABASE_URL=mysql+pymysql://root:YOUR_PASSWORD@localhost:3306/marine_retrofit
+SECRET_KEY=your-secret-key-change-this-in-production
+ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=30
+
+
+Important: Replace `YOUR_PASSWORD` with your actual MySQL root password.
+
+ 3. Frontend Setup
+
+Navigate to the frontend directory:
+
+bash
+cd ../frontend
+
+
+ Install Node.js dependencies:
+
+bash
+npm install
+
+
+ 🎯 Running the Application
+
+ Start the Backend Server
+
+From the `backend` directory:
+
+bash
+uvicorn app.main:app --reload
+
+
+The backend API will be available at: `http://localhost:8000`
+
+API Documentation (Swagger UI): `http://localhost:8000/docs`
+
+ Start the Frontend Development Server
+
+Open a new terminal, navigate to the `frontend` directory, and run:
+
+bash
+npm start
+
+
+The frontend application will be available at: `http://localhost:3000`
+
+The application will automatically open in your default browser.
+
+ 📁 Project Structure
+
+
+marine-retrofit/
+├── backend/
+│   ├── app/
+│   │   ├── routers/           API route handlers
+│   │   │   ├── auth.py        Authentication endpoints
+│   │   │   ├── projects.py    Project management
+│   │   │   ├── tasks.py       Task management
+│   │   │   ├── inventory.py   Inventory operations
+│   │   │   ├── blueprints.py  Blueprint uploads
+│   │   │   ├── reports.py     Report generation
+│   │   │   ├── dashboard.py   Dashboard statistics
+│   │   │   └── settings.py    User settings
+│   │   ├── __init__.py
+│   │   ├── auth.py            Authentication utilities
+│   │   ├── database.py        Database connection
+│   │   ├── main.py            FastAPI application
+│   │   ├── models.py          SQLAlchemy models
+│   │   └── schemas.py         Pydantic schemas
+│   ├── uploads/               File storage
+│   │   ├── blueprints/        Blueprint files
+│   │   └── reports/           Generated reports
+│   ├── .env                   Environment variables
+│   ├── .env.example           Environment template
+│   └── requirements.txt       Python dependencies
+├── frontend/
+│   ├── public/
+│   │   └── index.html         HTML template
+│   ├── src/
+│   │   ├── components/        React components
+│   │   │   ├── dashboard.js
+│   │   │   ├── projects.js
+│   │   │   ├── tasks.js
+│   │   │   ├── login.js
+│   │   │   ├── navbar.js
+│   │   │   ├── blueprints.js
+│   │   │   ├── reports.js
+│   │   │   └── settings.js
+│   │   ├── pages/             Page components
+│   │   ├── styles/            CSS stylesheets
+│   │   ├── utils/             Utility functions
+│   │   ├── api.js             API client
+│   │   ├── app.js             Main App component
+│   │   └── index.js           Entry point
+│   ├── package.json           Node dependencies
+│   └── package-lock.json
+├── database/
+│   └── schema.sql             Database schema
+└── README.md                  This file
+
+
+ 🗄 Database Schema
+
+The system uses 10 main tables:
+
+1. users - User accounts and authentication
+2. projects - Retrofit project information
+3. project_assignments - Links users to projects
+4. tasks - Project tasks and maintenance items
+5. inventory - Parts and materials inventory
+6. stock_transactions - Inventory transaction history
+7. blueprints - Project documents and blueprints
+8. user_settings - User preferences
+9. report_templates - Report configuration
+10. generated_reports - Report generation history
+
+ 🎭 User Roles
+
+The system supports four user roles with different permissions:
+
+1. Admin - Full system access and user management
+2. Project Manager - Project creation, management, and team assignments
+3. Engineer - Task management, blueprint access, and reporting
+4. Technician - Task execution and inventory management
+
+ 📡 API Endpoints
+
+ Authentication
+- `POST /api/auth/login` - User login
+- `POST /api/auth/register` - User registration
+- `GET /api/auth/me` - Get current user
+
+ Projects
+- `GET /api/projects/` - List all projects
+- `POST /api/projects/` - Create new project
+- `GET /api/projects/{id}` - Get project details
+- `PUT /api/projects/{id}` - Update project
+- `DELETE /api/projects/{id}` - Delete project
+
+ Tasks
+- `GET /api/tasks/` - List all tasks
+- `POST /api/tasks/` - Create new task
+- `GET /api/tasks/{id}` - Get task details
+- `PUT /api/tasks/{id}` - Update task
+- `DELETE /api/tasks/{id}` - Delete task
+
+ Inventory
+- `GET /api/inventory/` - List inventory items
+- `POST /api/inventory/` - Add inventory item
+- `PUT /api/inventory/{id}` - Update item
+- `DELETE /api/inventory/{id}` - Remove item
+- `POST /api/inventory/transaction` - Record transaction
+
+ Blueprints
+- `GET /api/blueprints/project/{project_id}` - Get project blueprints
+- `POST /api/blueprints/upload` - Upload blueprint
+- `DELETE /api/blueprints/{id}` - Delete blueprint
+
+ Reports
+- `POST /api/reports/generate` - Generate PDF report
+- `GET /api/reports/` - List generated reports
+
+ Dashboard
+- `GET /api/dashboard/stats` - Get dashboard statistics
+
+
+ 🔧 Troubleshooting
+
+ Common Issues
+
+ Database Connection Error
+
+Error: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server")
+
+Solution: Ensure MySQL is running and credentials in `.env` are correct.
+
+ Port Already in Use
+
+Error: [Errno 48] Address already in use
+
+Solution: 
+- Backend: Change port in uvicorn command: `uvicorn app.main:app --reload --port 8001`
+- Frontend: Set PORT in package.json or use `PORT=3001 npm start`
+
+ Module Not Found
+
+ModuleNotFoundError: No module named 'fastapi'
+
+Solution: Ensure virtual environment is activated and dependencies are installed:
+bash
+source venv/bin/activate   On macOS/Linux
+pip install -r requirements.txt
+
+
+ React Not Starting
+
+npm ERR! missing script: start
+
+Solution: Ensure you're in the frontend directory and node_modules is installed:
+bash
+cd frontend
+npm install
+npm start
+
+
+ 🔄 Testing
+Access the API documentation at `http://localhost:8000/docs` to test endpoints interactively.
+
+ 📊 Features in Detail
+
+ Dashboard
+- Real-time project statistics
+- Task completion metrics
+- Inventory alerts
+- Budget tracking
+- Role-based data filtering
+
+ Project Management
+- Create and manage retrofit projects
+- Track vessel information
+- Budget and spending monitoring
+- Status tracking
+- Team assignments
+
+ Task Management
+- Priority-based task organization
+- Due date tracking
+- Assignment to team members
+- Status updates (Pending, In Progress, Completed, Blocked)
+- Maintenance task flagging
+
+ Inventory Control
+- Stock level monitoring
+- Reorder level alerts
+- Transaction history
+- Supplier management
+- Location tracking
+
+ Blueprint Management
+- Multi-format file upload (PDF, PNG, etc.)
+- Version control
+- Project association
+- Preview capabilities
+
+ Reports
+- Project overview reports
+- Task completion reports
+- Inventory status reports
+- Financial reports
+- Custom date range filtering
+- PDF export
+
+ 🌟 Best Practices
+
+1. Always work in a virtual environment
+2. Use the API documentation for testing
+3. Follow the existing code structure when adding features
+
+ 📝 Additional Notes
+
+- The system uses JWT tokens for authentication (30-minute expiration by default)
+- File uploads are stored in `backend/uploads/`
+- Reports are generated in PDF format
+- The UI theme uses maritime colors (Navy Blue 1e3a8a and Sea Green 059669)
+
+
+

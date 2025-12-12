@@ -1,0 +1,586 @@
+.reports-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.reports-container h1 {
+  color: #1e3a5f;
+  margin-bottom: 2rem;
+}
+
+.message {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.message.success {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+}
+
+.message.error {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+}
+
+.report-generator {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.report-generator h2 {
+  color: #20b2aa;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.project-selection {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  position: relative;
+}
+
+.project-selection .loading,
+.project-selection .no-data {
+  text-align: center;
+  padding: 1rem;
+  color: #666;
+  font-style: italic;
+}
+
+.project-selection .loading {
+  color: #1a5490;
+}
+
+.project-selection .selected-count {
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #ddd;
+  color: #666;
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+.project-selection .checkbox-label {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.project-selection .checkbox-label:hover {
+  background-color: #f0f0f0;
+  border-color: #ddd;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.checkbox-label:hover {
+  background-color: white;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: auto;
+  cursor: pointer;
+  transform: scale(1.2);
+  margin-right: 0.5rem;
+}
+
+/* Radio button labels for project selection */
+.radio-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.radio-label:hover {
+  background-color: #f8f9fa;
+  border-color: #20b2aa;
+}
+
+.radio-label.selected {
+  background-color: #e8f5f1;
+  border-color: #20b2aa;
+  border-width: 2px;
+}
+
+.radio-label input[type="radio"] {
+  width: auto;
+  cursor: pointer;
+  transform: scale(1.2);
+  margin-right: 1rem;
+}
+
+.radio-label .project-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.radio-label .project-name {
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+}
+
+.radio-label .vessel-name {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Step containers */
+.step-container {
+  padding: 1rem 0;
+}
+
+.step-container h3 {
+  color: #1e3a5f;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.step-container p {
+  margin-bottom: 1.5rem;
+}
+
+/* Info box for permission messages */
+.info-box {
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-left: 4px solid #20b2aa;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.info-box h3 {
+  color: #1e3a5f;
+  margin-bottom: 1rem;
+}
+
+.info-box p {
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+/* Secondary button style */
+.btn-secondary {
+  padding: 1rem;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(108, 117, 125, 0.3);
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: auto;
+  cursor: pointer;
+  transform: scale(1.2);
+  margin-right: 0.5rem;
+}
+
+.checkbox-label span:first-of-type {
+  flex: 1;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+.status-badge.planning {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.status-badge.in_progress {
+  background-color: #007bff;
+  color: white;
+}
+
+.status-badge.on_hold {
+  background-color: #6c757d;
+  color: white;
+}
+
+.status-badge.completed {
+  background-color: #28a745;
+  color: white;
+}
+
+.status-badge.cancelled {
+  background-color: #dc3545;
+  color: white;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: auto;
+  cursor: pointer;
+  transform: scale(1.2);
+  margin-right: 0.5rem;
+}
+
+.checkbox-group span {
+  font-weight: normal;
+}
+
+.btn-generate {
+  width: 100%;
+  padding: 1rem;
+  background-color: #20b2aa;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-generate:hover:not(:disabled) {
+  background-color: #1a8a84;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(32, 178, 170, 0.3);
+}
+
+.btn-generate:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.generated-reports {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.generated-reports h2 {
+  color: #20b2aa;
+  margin-bottom: 1.5rem;
+}
+
+.no-data {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  font-style: italic;
+}
+
+.reports-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.reports-table thead {
+  background-color: #1e3a5f;
+  color: white;
+}
+
+.reports-table th,
+.reports-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.reports-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.reports-table .actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.type-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.type-badge.project {
+  background-color: #007bff;
+  color: white;
+}
+
+.type-badge.inventory {
+  background-color: #28a745;
+  color: white;
+}
+
+.type-badge.task {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.type-badge.financial {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-download,
+.btn-delete {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+}
+
+.btn-download {
+  background-color: #20b2aa;
+  color: white;
+}
+
+.btn-download:hover {
+  background-color: #1a8a84;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
+}
+
+@media (max-width: 768px) {
+  .reports-container {
+    padding: 1rem;
+  }
+
+  .project-selection {
+    max-height: 200px;
+  }
+
+  .reports-table {
+    font-size: 0.875rem;
+  }
+
+  .reports-table .actions {
+    flex-direction: column;
+  }
+}
+
+/* Responsive: convert reports table to stacked cards on small screens */
+/* Medium screens: tighten spacing and allow horizontal scroll if needed */
+@media (max-width: 1199px) {
+  .generated-reports .reports-table th,
+  .generated-reports .reports-table td {
+    padding: 0.6rem 0.6rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .generated-reports {
+    padding: 1rem;
+  }
+  /* Convert to stacked cards at tablet sizes to ensure rows reflow */
+  .generated-reports .reports-table {
+    display: block;
+    width: 100%;
+  }
+
+  .generated-reports .reports-table thead {
+    display: none;
+  }
+
+  .generated-reports .reports-table tbody {
+    display: block;
+  }
+
+  .generated-reports .reports-table tbody tr {
+    display: block;
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  }
+
+  .generated-reports .reports-table td {
+    display: block;
+    padding: 0.45rem 0;
+    border: none;
+  }
+
+  .generated-reports .reports-table td::before {
+    content: attr(data-label) ": ";
+    font-weight: 700;
+    color: #333;
+    display: inline-block;
+    width: 40%;
+  }
+
+  .generated-reports .reports-table td[data-label="Actions"]::before {
+    content: '';
+    width: 0;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .generated-reports .reports-table .actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    justify-content: flex-end;
+  }
+}
+
+/* Small/mobile screens: convert to stacked card layout with labels */
+@media (max-width: 767px) {
+  .generated-reports .reports-table {
+    display: block;
+  }
+
+  .generated-reports .reports-table thead {
+    display: none;
+  }
+
+  .generated-reports .reports-table tbody {
+    display: block;
+  }
+
+  .generated-reports .reports-table tbody tr {
+    display: block;
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  }
+
+  .generated-reports .reports-table td {
+    display: block;
+    padding: 0.45rem 0;
+    border: none;
+  }
+
+  /* Show label before each cell using the data-label attribute we added */
+  .generated-reports .reports-table td::before {
+    content: attr(data-label) ": ";
+    font-weight: 700;
+    color: #333;
+    display: inline-block;
+    width: 40%;
+  }
+
+  .generated-reports .reports-table td[data-label="Actions"]::before {
+    content: '';
+    width: 0;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .generated-reports .reports-table td .type-badge {
+    margin-left: 0;
+  }
+
+  .generated-reports .reports-table .actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    justify-content: flex-end;
+  }
+
+  .generated-reports .reports-table .actions button {
+    flex: 0 0 auto;
+  }
+}
+
+/* Very small phones: tighten font and spacing */
+@media (max-width: 420px) {
+  .generated-reports .reports-table td::before {
+    width: 48%;
+  }
+
+  .generated-reports .reports-table td {
+    font-size: 0.92rem;
+  }
+}

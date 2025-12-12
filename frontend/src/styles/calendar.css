@@ -1,0 +1,339 @@
+.calendar-container {
+  padding: 2rem;
+}
+
+.calendar-controls {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.calendar-controls h2 {
+  margin: 0;
+  color: #003d5b;
+  min-width: 200px;
+  text-align: center;
+}
+
+.calendar-legend {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.legend-dot.project {
+  background: #003d5b;
+}
+
+.legend-dot.project-start {
+  background: #00a8cc;
+}
+
+.legend-dot.task-high {
+  background: #f44336;
+}
+
+.legend-dot.task-medium {
+  background: #ff9800;
+}
+
+.legend-dot.task-low {
+  background: #4caf50;
+}
+
+.calendar-grid {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.calendar-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background: #003d5b;
+  color: white;
+}
+
+.day-name {
+  padding: 1rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.calendar-body {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  background: #e0e0e0;
+}
+
+.calendar-day {
+  background: white;
+  min-height: 100px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.calendar-day:hover:not(.empty) {
+  background: #f5f5f5;
+}
+
+.calendar-day.empty {
+  background: #fafafa;
+  cursor: default;
+}
+
+.calendar-day.today {
+  background: #e3f2fd;
+}
+
+.day-number {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.day-events {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.event-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.event-dot.project {
+  background: #003d5b;
+}
+
+.event-dot.project-start {
+  background: #00a8cc;
+}
+
+.event-dot.task-high {
+  background: #f44336;
+}
+
+.event-dot.task-medium {
+  background: #ff9800;
+}
+
+.event-dot.task-low {
+  background: #4caf50;
+}
+
+.event-dot.task-critical {
+  background: #d32f2f;
+}
+
+.more-events {
+  font-size: 0.7rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+.date-details-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.date-details-modal .modal-content {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.no-events {
+  text-align: center;
+  color: #999;
+  padding: 2rem;
+}
+
+.events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.event-item {
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid;
+}
+
+.event-item.project {
+  background: #e3f2fd;
+  border-left-color: #003d5b;
+}
+
+.event-item.project-start {
+  background: #e0f7fa;
+  border-left-color: #00a8cc;
+}
+
+.event-item.project-deadline {
+  background: #e3f2fd;
+  border-left-color: #003d5b;
+}
+
+.event-item.task {
+  background: #fff3e0;
+  border-left-color: #ff9800;
+}
+
+.event-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.event-header h3 {
+  margin: 0;
+  color: #333;
+}
+
+.event-details p {
+  margin: 0.25rem 0;
+  color: #666;
+}
+
+.upcoming-deadlines {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.upcoming-deadlines h2 {
+  margin-top: 0;
+  color: #003d5b;
+}
+
+.deadlines-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.deadline-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background: #f5f5f5;
+  transition: background 0.2s;
+}
+
+.deadline-item:hover {
+  background: #e0e0e0;
+}
+
+.deadline-item.project-start {
+  background: #e0f7fa;
+}
+
+.deadline-item.project-start:hover {
+  background: #b2ebf2;
+}
+
+.deadline-date {
+  min-width: 60px;
+  text-align: center;
+  font-weight: bold;
+  color: #003d5b;
+  font-size: 1.1rem;
+}
+
+.deadline-info {
+  flex: 1;
+}
+
+.deadline-info h4 {
+  margin: 0 0 0.25rem 0;
+  color: #333;
+}
+
+.deadline-type {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.priority-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.priority-badge.high,
+.priority-badge.critical {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.priority-badge.medium {
+  background: #fff3e0;
+  color: #f57c00;
+}
+
+.priority-badge.low {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+@media (max-width: 768px) {
+  .calendar-legend {
+    flex-wrap: wrap;
+  }
+  
+  .calendar-day {
+    min-height: 80px;
+    padding: 0.25rem;
+  }
+  
+  .day-number {
+    font-size: 0.9rem;
+  }
+  
+  .calendar-controls {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

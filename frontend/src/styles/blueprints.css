@@ -1,0 +1,216 @@
+.blueprints-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.blueprints-container h1 {
+  color: #1e3a5f;
+  margin-bottom: 2rem;
+}
+
+.message {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.message.success {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+}
+
+.message.error {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+}
+
+.upload-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.upload-section h2 {
+  color: #20b2aa;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.dropzone {
+  border: 3px dashed #20b2aa;
+  border-radius: 10px;
+  padding: 3rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #f8f9fa;
+}
+
+.dropzone:hover,
+.dropzone.active {
+  border-color: #1e3a5f;
+  background-color: #e9ecef;
+}
+
+.dropzone p {
+  margin: 0;
+  color: #666;
+}
+
+.file-types {
+  font-size: 0.875rem;
+  color: #999;
+  margin-top: 0.5rem;
+}
+
+.blueprints-list {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.blueprints-list h2 {
+  color: #20b2aa;
+  margin-bottom: 1.5rem;
+}
+
+.filter-section {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.filter-section label {
+  font-weight: 600;
+  color: #333;
+}
+
+.filter-section select {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  min-width: 200px;
+}
+
+.no-data {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  font-style: italic;
+}
+
+.blueprints-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.blueprints-table thead {
+  background-color: #1e3a5f;
+  color: white;
+}
+
+.blueprints-table th,
+.blueprints-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.blueprints-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.blueprints-table .actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Card actions spacing for blueprint cards (grid/list view) */
+.blueprint-actions {
+  display: flex;
+  gap: 0.6rem; /* space between download and delete buttons */
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .blueprint-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* Uploader info styling */
+.blueprint-uploader {
+  color: #555;
+  font-size: 0.95rem;
+  margin-top: 4px;
+}
+
+.btn-download,
+.btn-delete {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+}
+
+.btn-download {
+  background-color: #20b2aa;
+  color: white;
+}
+
+.btn-download:hover {
+  background-color: #1a8a84;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
+}
+
+@media (max-width: 768px) {
+  .blueprints-container {
+    padding: 1rem;
+  }
+
+  .blueprints-table {
+    font-size: 0.875rem;
+  }
+
+  .blueprints-table .actions {
+    flex-direction: column;
+  }
+}

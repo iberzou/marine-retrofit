@@ -1,0 +1,258 @@
+/* Styles for Tasks page - improves table spacing and layout */
+.tasks-page {
+  padding: 2rem;
+}
+
+.tasks-title {
+  color: #1e3a5f;
+  margin-bottom: 1.5rem;
+}
+
+.tasks-card {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tasks-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px; /* vertical separation between rows */
+  min-width: 700px; /* prevents cramping when many columns */
+}
+
+.tasks-table thead th {
+  background: #1e3a5f;
+  color: #fff;
+  font-weight: 700;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.tasks-table tbody tr {
+  background: white;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+}
+
+.tasks-table td {
+  padding: 0.9rem 1rem;
+  vertical-align: middle;
+  color: #333;
+}
+
+.tasks-table tbody tr:nth-child(even) {
+  background: #fbfbfb;
+}
+
+/* Grayed out style for completed tasks */
+.task-completed {
+  background: #f5f6f7 !important;
+  color: #9aa0a6;
+  opacity: 0.9;
+}
+
+.task-completed .task-name {
+  color: #8a8f94;
+  text-decoration: line-through;
+}
+
+.task-completed .task-meta {
+  color: #9aa0a6;
+}
+
+.tasks-table .task-name {
+  font-weight: 600;
+}
+
+.tasks-table .task-meta {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Button styles used across the app (ensure consistent look for task actions) */
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: #20b2aa; /* teal primary */
+  color: #042023; /* dark text for good contrast */
+}
+
+.btn-primary:hover {
+  background: #1a9a94;
+}
+
+.btn-delete {
+  background: #dc3545;
+  color: #fff;
+}
+
+.btn-delete:hover {
+  background: #c82333;
+}
+
+.btn-secondary {
+  background: #6c757d;
+  color: #fff;
+}
+
+/* Improve table UX */
+.tasks-table tbody tr:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.tasks-table thead th {
+  letter-spacing: 0.2px;
+}
+
+.tasks-table .badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .tasks-table {
+    min-width: 600px;
+  }
+
+  .tasks-title {
+    font-size: 1.25rem;
+  }
+}
+
+/* Improved dropdown (select) styling for filter controls */
+.form-select {
+  display: inline-block;
+  width: 100%;
+  max-width: 320px;
+  padding: 8px 36px 8px 12px; /* room for chevron */
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  background: #ffffff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23999'><path d='M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.06z'/></svg>") no-repeat right 10px center/18px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size: 14px;
+  color: #12313a;
+}
+
+.form-select:focus {
+  outline: none;
+  border-color: #20b2aa;
+  box-shadow: 0 0 0 3px rgba(32,178,170,0.12);
+}
+
+.filter-bar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filter-label { font-size: 12px; color: #556; }
+
+@media (max-width: 600px) {
+  .form-select { max-width: 100%; }
+}
+
+/* Dark theme for tasks table */
+body[data-theme="dark"] .tasks-table thead th {
+  background: #1e3a5f;
+  color: #ffffff;
+}
+
+body[data-theme="dark"] .tasks-table tbody tr {
+  background: #1e1e1e;
+}
+
+body[data-theme="dark"] .tasks-table tbody tr:nth-child(even) {
+  background: #242424;
+}
+
+body[data-theme="dark"] .tasks-table td {
+  color: #e8e8e8;
+}
+
+body[data-theme="dark"] .task-completed {
+  background: #2a2a2a !important;
+  color: #999;
+}
+
+body[data-theme="dark"] .form-select {
+  background-color: #2a2a2a;
+  color: #e8e8e8;
+  border-color: #4a4a4a;
+}
+
+body[data-theme="dark"] .filter-label {
+  color: #e8e8e8;
+}
+
+/* Ensure the 'Complete' button is centered and consistent */
+.tasks-table td.complete-cell {
+  text-align: center;
+  vertical-align: middle;
+  padding: 0.9rem 1rem;
+}
+
+.tasks-table td.complete-cell button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0.45rem 1rem;
+  white-space: nowrap;
+  margin: 0;
+}
+
+/* Ensure consistent alignment across all table cells */
+.tasks-table td {
+  padding: 0.9rem 1rem;
+  vertical-align: middle;
+  color: #333;
+}
+
+/* Specific styling for the actions column */
+.tasks-table td.actions-cell {
+  padding: 0.9rem 1rem;
+  vertical-align: middle;
+}
+
+.tasks-table td.actions-cell button {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .tasks-table td.complete-cell button {
+    width: auto;
+    min-width: 100px;
+  }
+  
+  .tasks-table td.complete-cell {
+    padding: 0.75rem 0.5rem;
+  }
+}
